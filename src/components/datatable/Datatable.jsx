@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Datatable = () => {
-  const BaseUrl = "http://localhost:5000";
+  // const BaseUrl = "http://localhost:5000";
   // const BaseUrl = "https://super-fawn-pocketbook.cyclic.app";
-  // const BaseUrl = "https://salespanel.herokuapp.com";
+  const BaseUrl = "https://salespanel.herokuapp.com";
   const [data, setData] = useState([]);
 
 

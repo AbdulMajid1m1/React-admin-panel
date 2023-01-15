@@ -62,8 +62,8 @@ const Single = () => {
     });
 
   }
-  const BaseUrl = "http://localhost:5000";
-  // const BaseUrl = "https://salespanel.herokuapp.com";
+  // const BaseUrl = "http://localhost:5000";
+  const BaseUrl = "https://salespanel.herokuapp.com";
 
   const location = useLocation();
   const id = location.pathname.split("/")[2];

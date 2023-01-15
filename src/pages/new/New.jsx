@@ -9,8 +9,8 @@ import { BeatLoader } from 'react-spinners';
 const New = ({ inputs, title }) => {
   const [isLoading, setIsLoading] = useState(false);
   // const BaseUrl = "https://super-fawn-pocketbook.cyclic.app";
-  // const BaseUrl = "https://salespanel.herokuapp.com";
-  const BaseUrl = "http://localhost:5000";
+  // const BaseUrl = "http://localhost:5000";
+  const BaseUrl = "https://salespanel.herokuapp.com";
   const [file, setFile] = useState("");
   const navigate = useNavigate();
   const handleSubmit = async event => {

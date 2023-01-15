@@ -11,7 +11,8 @@ const Featured = () => {
   const [profit, setProfit] = useState(0);
   const [sales, setSales] = useState(0);
   const [revenue, setRevenue] = useState(0);
-  const BaseUrl = "http://localhost:5000";
+  const BaseUrl = "https://salespanel.herokuapp.com";
+
 
   useEffect(() => {
     const getData = async () => {
