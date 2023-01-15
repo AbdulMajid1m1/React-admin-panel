@@ -6,17 +6,14 @@ import Featured from "../../components/featured/Featured";
 import Chart from "../../components/chart/Chart";
 import Table from "../../components/table/Table";
 import { DataGrid } from "@mui/x-data-grid";
-
-
-
 // import "../../datatable/datatable.scss";
-import Datatable from "../../components/datatable/datatable.scss";
+import "../../components/datatable/datatable.scss";
+import Datatable from "../../components/datatable/Datatable"
 import { userColumns, userRows } from "../../datatablesource";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+// import List from "../list/List";
 const Home = () => {
-
   const [data, setData] = useState(userRows);
 
   const handleDelete = (id) => {
@@ -50,30 +47,13 @@ const Home = () => {
       <Sidebar />
       <div className="homeContainer">
         <Navbar />
-        {/* <div className="widgets">
-          <Widget type="user" />
-          <Widget type="order" />
-          <Widget type="earning" />
-          <Widget type="balance" />
-        </div> */}
         <div className="charts">
           <Featured />
           <Chart title="Last 6 Months (Revenue)" aspect={2 / 1} />
         </div>
-        {/* <div className="home-data-grid"> */}
-          <DataGrid
-            getRowHeight={({ }) => {
-
-              return 120;
-            }}
-            className="datagrid home-data-grid"
-            rows={data}
-            columns={userColumns.concat(actionColumn)}
-            pageSize={9}
-            rowsPerPageOptions={[9]}
-            checkboxSelection
-          />
-        {/* </div> */}
+        <div className="home-data-grid-div">
+          <Datatable />
+        </div>
       </div>
     </div>
   );

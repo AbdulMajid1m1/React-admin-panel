@@ -1,45 +1,39 @@
 export const userInputs = [
+
   {
     id: 1,
-    label: "Prodtuct Name",
-    type: "text",
-    placeholder: "john_doe",
-  },
-  {
-    id: 2,
     label: "Product Name",
+    name: "ProductName",
     type: "text",
     placeholder: "shawl",
   },
   {
-    id: 3,
-    label: "Product Price",
+    id: 2,
+    name: "id",
+    label: "Product ID",
     type: "number",
-    placeholder: "400",
+    placeholder: "01",
   },
   {
-    id: 4,
+    id: 3,
     label: "Total Stock",
+    name: "totalStock",
     type: "number",
     placeholder: "23",
   },
   {
-    id: 5,
+    id: 4,
+    name: "purchasePrice",
     label: "Purchase Price",
     type: "number",
     placeholder: "1000",
   },
   {
-    id: 6,
+    id: 5,
+    name: "sellingPrice",
     label: "Selling Price",
     type: "number",
     placeholder: "1500",
-  },
-  {
-    id: 7,
-    label: "Vendor Name",
-    type: "text",
-    placeholder: "name",
   },
 ];
 

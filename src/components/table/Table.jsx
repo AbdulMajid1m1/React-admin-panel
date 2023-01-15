@@ -29,26 +29,28 @@ const List = (props) => {
             <TableCell className="tableCell">ID</TableCell>
             <TableCell className="tableCell">Product</TableCell>
             <TableCell className="tableCell">Sold Items Count</TableCell>
-            <TableCell className="tableCell">Sold Items Price</TableCell>
-            <TableCell className="tableCell">Buying Cost</TableCell>
+            <TableCell className="tableCell">Remaing Stock</TableCell>
+            <TableCell className="tableCell">Item Selling Price</TableCell>
+            <TableCell className="tableCell">Item Purchase Cost</TableCell>
             <TableCell className="tableCell">Total Profit</TableCell>
             {/* <TableCell className="tableCell">Payment Method</TableCell>
             <TableCell className="tableCell">Status</TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell className="tableCell">{row.id}</TableCell>
-              <TableCell className="tableCell">
-                {row.product}
-              </TableCell>
-              <TableCell className="tableCell">{props.soldItems}</TableCell>
-              <TableCell className="tableCell">{props.soldItems * row.sellingAmount}</TableCell>
-              <TableCell className="tableCell">{props.soldItems * row.purchaseAmount}</TableCell>
-              <TableCell className="tableCell">{props.soldItems * row.sellingAmount - props.soldItems * row.purchaseAmount}</TableCell>
-            </TableRow>
-          ))}
+          {/* {rows.map((row) => ( */}
+          <TableRow key={props.productId}>
+            <TableCell className="tableCell">{props.productId}</TableCell>
+            <TableCell className="tableCell">
+              {props.ProductName}
+            </TableCell>
+            <TableCell className="tableCell">{props.soldItems}</TableCell>
+            <TableCell className="tableCell">{props.totalStock}</TableCell>
+            <TableCell className="tableCell">{props.purchasePrice}</TableCell>
+            <TableCell className="tableCell">{props.sellingPrice}</TableCell>
+            <TableCell className="tableCell">{[props.sellingPrice - props.purchasePrice] * props.soldItems}</TableCell>
+          </TableRow>
+          {/* ))} */}
         </TableBody>
       </Table>
     </TableContainer>

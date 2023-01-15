@@ -4,8 +4,35 @@ import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Featured = () => {
+  const [profit, setProfit] = useState(0);
+  const [sales, setSales] = useState(0);
+  const [revenue, setRevenue] = useState(0);
+  const BaseUrl = "http://localhost:5000";
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await axios.get(`${BaseUrl}/get-selling-stats`);
+        setProfit(res.data.data.totalProfit);
+        setSales(res.data.data.totalSales);
+        setRevenue(res.data.data.totalRevenue);
+
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    getData();
+
+
+
+  }, []);
+
+
   return (
     <div className="featured">
       <div className="top">
@@ -14,33 +41,33 @@ const Featured = () => {
       </div>
       <div className="bottom">
         <div className="featuredChart">
-          <CircularProgressbar value={70} text={"70%"} strokeWidth={5} />
+          <CircularProgressbar value={70} text={revenue + "%"} strokeWidth={5} />
         </div>
-        <p className="title">Total sales made today</p>
-        <p className="amount">Rs. 15000</p>
+        <p className="title">Total sales made</p>
+        <p className="amount">Rs. {sales}</p>
         <p className="desc">
           Previous transactions processing. Last payments may not be included.
         </p>
         <div className="summary">
           <div className="item">
-            <div className="itemTitle">Target</div>
+            <div className="itemTitle">Total Profit</div>
             <div className="itemResult negative">
-              <KeyboardArrowDownIcon fontSize="small"/>
-              <div className="resultAmount">Rs. 120.4k</div>
+              <KeyboardArrowDownIcon fontSize="small" />
+              <div className="resultAmount">Rs. {profit}</div>
             </div>
           </div>
           <div className="item">
-            <div className="itemTitle">Last Week</div>
+            <div className="itemTitle">Total Sales</div>
             <div className="itemResult positive">
-              <KeyboardArrowUpOutlinedIcon fontSize="small"/>
-              <div className="resultAmount">Rs. 120.4k</div>
+              <KeyboardArrowUpOutlinedIcon fontSize="small" />
+              <div className="resultAmount">Rs. {sales}</div>
             </div>
           </div>
           <div className="item">
-            <div className="itemTitle">Last Month</div>
+            <div className="itemTitle">Total Revenue</div>
             <div className="itemResult positive">
-              <KeyboardArrowUpOutlinedIcon fontSize="small"/>
-              <div className="resultAmount">Rs. 120.4k</div>
+              <KeyboardArrowUpOutlinedIcon fontSize="small" />
+              <div className="resultAmount">{revenue}%</div>
             </div>
           </div>
         </div>
